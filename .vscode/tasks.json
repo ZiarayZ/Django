@@ -6,7 +6,7 @@
         {
             "label": "build: pygbag",
             "type": "shell",
-            "command": "pygbag .",
+            "command": "pygbag ./src",
             "group": "build"
         },
         {
