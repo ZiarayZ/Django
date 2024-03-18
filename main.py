@@ -1,5 +1,6 @@
-import asyncio
 from src.config.config import fetch_config
+import asyncio
+import pygame
 
 
 # Try to declare all your globals at once to facilitate compilation later.
@@ -8,26 +9,51 @@ COUNT_DOWN = 20
 # Do init here
 # Load any assets right now to avoid lag at runtime or network errors.
 config = fetch_config()
+# initializing imported module
+pygame.init()
+
+screen = pygame.display.set_mode((400, 500))
+clock = pygame.time.Clock()
+playerRect = pygame.Rect(250, 250, 50, 50)
+
+# Setting name for window
+pygame.display.set_caption("Square Game")
 
 
 async def main():
     global COUNT_DOWN
 
     while True:
+        clock.tick(60)
+        screen.fill((0, 0, 0))
 
-        # Do your rendering here, note that it's NOT an infinite loop,
-        # and it is fired only when VSYNC occurs
-        # Usually 1/60 or more times per seconds on desktop
-        # could be less on some mobile devices
-        if __name__ == "__main__" and config != None:
-            print(
-                f"""
+        # Check for event if user has pushed
+        # any event in queue
+        for event in pygame.event.get():
 
-                Hello[{COUNT_DOWN}] from Python
+            # if event is of type quit then set
+            # running bool to false
+            if event.type == pygame.QUIT:
+                return
 
-    """
-            )
-        # pygame.display.update() should go right next line
+        # player movement
+        user_input = pygame.key.get_pressed()
+        if user_input[pygame.K_w] or user_input[pygame.K_UP]:
+            playerRect.y -= 10
+        if user_input[pygame.K_s] or user_input[pygame.K_DOWN]:
+            playerRect.y += 10
+        if user_input[pygame.K_a] or user_input[pygame.K_LEFT]:
+            playerRect.x -= 10
+        if user_input[pygame.K_d] or user_input[pygame.K_RIGHT]:
+            playerRect.x += 10
+        # player quits
+        if user_input[pygame.K_ESCAPE]:
+            return
+
+        pygame.draw.rect(screen, (255, 50, 50), playerRect)
+
+        pygame.display.update()  # should go right next line
+        pygame.display.flip()
 
         await asyncio.sleep(0)  # Very important, and keep it 0
 
