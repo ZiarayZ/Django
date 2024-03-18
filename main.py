@@ -9,7 +9,6 @@ config = fetch_config()
 pygame.init()
 
 screen = pygame.display.set_mode((400, 500))
-clock = pygame.time.Clock()
 playerRect = pygame.Rect(250, 250, 50, 50)
 
 # Setting name for window
@@ -17,11 +16,10 @@ pygame.display.set_caption("Square Game")
 
 
 async def main():
-    global screen, clock, playerRect
+    global screen, playerRect
 
     while True:
-        clock.tick(60)
-        screen.fill((0, 0, 0))
+        screen.fill((255, 50, 50))
 
         # Check for event if user has pushed
         # any event in queue
@@ -46,7 +44,7 @@ async def main():
         if user_input[pygame.K_ESCAPE]:
             return
 
-        pygame.draw.rect(screen, (255, 50, 50), playerRect)
+        pygame.draw.rect(screen, (0, 0, 0), playerRect)
 
         pygame.display.update()  # should go right next line
         pygame.display.flip()
