@@ -46,8 +46,7 @@ async def main():
 
         pygame.draw.rect(screen, (0, 0, 0), playerRect)
 
-        pygame.display.update()  # should go right next line
-        pygame.display.flip()
+        pygame.display.update()
 
         await asyncio.sleep(0)  # Very important, and keep it 0
 
