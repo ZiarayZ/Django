@@ -1,10 +1,6 @@
-from src.config.config import fetch_config
 import asyncio
 import pygame
 
-# Do init here
-# Load any assets right now to avoid lag at runtime or network errors.
-config = fetch_config()
 # initializing imported module
 pygame.init()
 
@@ -47,6 +43,15 @@ async def main():
         pygame.draw.rect(screen, (0, 0, 0), playerRect)
 
         pygame.display.update()
+
+        print(
+            f"""
+
+            Hello[{COUNT_DOWN}] from Python
+
+            """
+        )
+        # pygame.display.update() should go right next line
 
         await asyncio.sleep(0)  # Very important, and keep it 0
 
