@@ -1,4 +1,4 @@
 #!/bin/sh
-source ./venv/bin/activate
+source ./.venv/bin/activate
 echo pip install pygbag
 echo deactivate
