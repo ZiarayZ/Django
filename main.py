@@ -45,6 +45,7 @@ async def main():
         pygame.draw.rect(screen, (255, 50, 50), playerRect)
 
         pygame.display.update()
+        pygame.display.flip()
 
         print(
             f"""
