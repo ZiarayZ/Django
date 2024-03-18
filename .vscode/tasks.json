@@ -10,13 +10,13 @@
             "group": "build"
         },
         {
-            "label": "build: python",
+            "label": "build: venv",
             "type": "shell",
             "command": "python -m venv .venv",
             "group": "build"
         },
         {
-            "label": "build: modules",
+            "label": "build: python",
             "type": "shell",
             "command": "./src/scripts/build.sh",
             "windows": {
