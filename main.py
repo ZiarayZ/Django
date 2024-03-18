@@ -5,6 +5,7 @@ import pygame
 pygame.init()
 
 screen = pygame.display.set_mode((400, 500))
+clock = pygame.time.Clock()
 playerRect = pygame.Rect(250, 250, 50, 50)
 
 # Setting name for window
@@ -12,9 +13,10 @@ pygame.display.set_caption("Square Game")
 
 
 async def main():
-    global screen, playerRect
+    global clock, screen, playerRect
 
     while True:
+        clock.tick(60)
         screen.fill((0, 0, 0))
 
         # Check for event if user has pushed
