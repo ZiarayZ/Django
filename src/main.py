@@ -47,15 +47,6 @@ async def main():
         pygame.display.update()
         pygame.display.flip()
 
-        print(
-            f"""
-
-            Hello[{COUNT_DOWN}] from Python
-
-            """
-        )
-        # pygame.display.update() should go right next line
-
         await asyncio.sleep(0)  # Very important, and keep it 0
 
 
