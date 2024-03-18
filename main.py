@@ -2,10 +2,6 @@ from src.config.config import fetch_config
 import asyncio
 import pygame
 
-
-# Try to declare all your globals at once to facilitate compilation later.
-COUNT_DOWN = 20
-
 # Do init here
 # Load any assets right now to avoid lag at runtime or network errors.
 config = fetch_config()
@@ -21,7 +17,7 @@ pygame.display.set_caption("Square Game")
 
 
 async def main():
-    global COUNT_DOWN
+    global screen, clock, playerRect
 
     while True:
         clock.tick(60)
@@ -56,11 +52,6 @@ async def main():
         pygame.display.flip()
 
         await asyncio.sleep(0)  # Very important, and keep it 0
-
-        if not COUNT_DOWN:
-            return
-
-        COUNT_DOWN = COUNT_DOWN - 1
 
 
 # This is the program entry point:
