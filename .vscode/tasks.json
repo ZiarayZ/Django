@@ -6,7 +6,7 @@
         {
             "label": "build",
             "type": "shell",
-            "command": "pygbag ${workspaceFolder}",
+            "command": "pygbag .",
             "group": "build"
         }
     ]
